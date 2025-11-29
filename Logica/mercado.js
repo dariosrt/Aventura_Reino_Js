@@ -19,9 +19,9 @@ import { Daga } from "./Productos/Daga.js";
 const mercado = document.getElementById("escena_mercado");
 
 
-const header = document.getElementById("header");
+const header = document.querySelector("header");
 const main = document.querySelector("main");
-const footer = document.getElementById("footer");
+const footer = document.querySelector("footer");
 
 
 const lista_productos = [];
@@ -33,6 +33,7 @@ lista_productos.push(new Daga());
 
 
 
+
 const btn_mercado_on = document.getElementById("btn_mercado_on");
 const btn_mercado_off = document.getElementById("btn_mercado_off");
 
@@ -40,21 +41,34 @@ const btn_mercado_off = document.getElementById("btn_mercado_off");
 
 
 
+/*
+    ACTIVAR / DESACTIVAR ESCENA MERCADO 
+*/
 btn_mercado_on.addEventListener("click", () => {
 
-    
-    // ocultar_elementos(header);
-    // ocultar_elementos(main);
-    // ocultar_elementos(footer);
 
-    mercado.classList= "mercado on";
+    header.classList.add("ocultando");
+    main.classList.add("ocultando");
+    footer.classList.add("ocultando");
+    setTimeout(() => {
+        header.classList="oculto";
+        main.classList="oculto";
+        footer.classList="oculto";
+        mercado.classList= "mercado on";
+    }, 1000);
 
 });
 btn_mercado_off.addEventListener("click", () => {
 
     mercado.classList= "mercado salida";
+    header.classList="ocultando";
+    main.classList="ocultando";
+    footer.classList="ocultando";
     setTimeout(() => {
         mercado.classList = "mercado off";
+        header.classList.remove("ocultando");
+        main.classList.remove("ocultando");
+        footer.classList.remove("ocultando");
     }, 1000);
 
 });
