@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/style_vprincipal.css">
+    <script type="module" src="Logica/script_vprincipal.js" defer></script>
+    <script type="module" src="Logica/mercado.js" defer></script>
+    <script type="module" src="Logica/batalla.js" defer></script>
+    <script type="module" src="Logica/utils.js" defer></script>
+    <title>Document</title>
+</head>
+<body> 
+
+    
+    
+    <!-- <div id="mercado" class="mercado_off"> -->
+    <div class="mercado" id="escena_mercado">
+        <div id="mercado_head">
+
+        </div>
+        <div id="mercado_body">
+            <div class="product_box">
+                <img class="img_producto" src="estilos/imgs/Arco.webp">
+                <h4>Nombre: </h4>
+                <p>Precio: </p>
+                <button>Comprar</button>
+            </div>
+            <div class="product_box">
+                <img class="img_producto" src="">
+            </div>
+            <div class="product_box">
+                <img class="img_producto" src="">
+            </div>
+            <div class="product_box">
+                <img class="img_producto" src="">
+            </div>
+            <div class="product_box">
+                <img class="img_producto" src="">
+            </div>
+            <div class="product_box">
+                <img class="img_producto" src="">
+            </div>
+            <div class="product_box">
+                <img class="img_producto" src="">
+            </div>
+            <div class="product_box">
+                <img class="img_producto" src="">
+            </div>
+            <div class="product_box">
+                <img class="img_producto" src="">
+            </div>
+            <div class="product_box">
+                <img class="img_producto" src="">
+            </div>
+
+        </div>
+        <button id="btn_mercado_off">Salir</button>
+
+    </div>
+
+    <div id="escena_batalla">
+
+    </div>
+
+    <header>
+
+    </header>
+    <main>
+        <div id="principal_box">
+            <img id="img_jugador" class="mostrar_stats">
+            <div id="stats_box">
+            </div>
+            <table>
+                <tr>
+                    <td>Nombre</td>
+                    <td name="mostrar_stats" id="stat_nombre" ></td>
+                </tr>
+                <tr>
+                    <td>Ataque</td>
+                    <td name="mostrar_stats" id="stat_ataque" ></td>
+                </tr>
+                <tr>
+                    <td>Defensa</td>
+                    <td name="mostrar_stats" id="stat_defensa" ></td>
+                </tr>
+            </table>
+            <button onclick="refrescar_stats()" id="btn_luchar">Luchar</button>
+            <button id="btn_mercado_on"></button>
+        </div>
+        
+    </main>
+    <footer>
+        <div id="item_container">
+            <div class="item_box">
+                <img class="item_img" src="estilos/imgs/Arco.webp">
+            </div>
+            <div class="item_box">
+                <img class="item_img">
+            </div>
+            <div class="item_box">
+                <img class="item_img">
+            </div>
+            <div class="item_box">
+                <img class="item_img">
+            </div>
+            <div class="item_box">
+                <img class="item_img">
+            </div>
+            <div class="item_box">
+                <img class="item_img">
+            </div>
+            <div class="item_box">
+                <img class="item_img">
+            </div>
+            <div class="item_box">
+                <img class="item_img">
+            </div>
+            <div class="item_box">
+                <img class="item_img">
+            </div>
+            <div class="item_box">
+                <img class="item_img">
+            </div>
+    </footer>
+
+
+
+</body>
+</html>
