@@ -12,10 +12,9 @@ import { Producto } from "./Producto.js";
 */
 export class Hacha extends Producto{
     constructor(){
-        super("Hacha", "epico", "imgs/Hacha.png", 90000);
+        super("Hacha", "epico", "estilos/imgs/Hacha.png", 90000);
 
         this.tipo = "contundente";
         this.extra_ataque = 16;
     }
 }
-

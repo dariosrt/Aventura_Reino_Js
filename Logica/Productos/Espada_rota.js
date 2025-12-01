@@ -10,12 +10,12 @@ import { Producto } from "./Producto.js";
 
 
 */
-export class Daga extends Producto{
+export class Espada_rota extends Producto{
     constructor(){
-        super("daga", "epico", "estilos/imgs/Daga.png", 65000)
+        super("Espada rota", "comun", "estilos/imgs/Espada_rota.png", 7600);
 
-        this.tipo = "destreza";
-        this.extra_ataque = 16;
+        this.tipo = "contundente";
+        this.extra_ataque = 4;
     }
 }
 

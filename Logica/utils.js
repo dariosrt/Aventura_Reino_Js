@@ -20,3 +20,6 @@ const mercado = document.getElementById("mercado");
 
 const boton = document.getElementById("btn_luchar");
 
+export function calcular_cambio(p){ 
+    return (p/100).toFixed(2);
+}

@@ -4,23 +4,39 @@ import { Jefe } from "./Entidades/Jefe.js";
 
 import { Armadura } from "./Productos/Armadura.js";
 import { Frasco } from "./Productos/Frasco.js";
+import { Arco } from "./Productos/Arco.js";
+import { Hacha } from "./Productos/Hacha.js";
+import { Daga } from "./Productos/Daga.js";
+import { Espada_rota } from "./Productos/Espada_rota.js";
+
+
+import { calcular_cambio } from "./utils.js";
+import { 
+    mostrar_inventario,
+    mostrar_estadisticas
+} from "./escenas.js";
+import {
+    jugador,
+    mercado,
+    header,
+    main,
+    footer,
+    btn_mercado_on,
+    btn_mercado_off
+} from "./constants.js"
 
 // Importante usar module en el script (dentro del html) para que permita usar/soportar los imports el naveador
 
 
 
-const img_jugador = document.getElementById("img_jugador");
 
 const boton = document.getElementById("btn_luchar");
 
-const escena_mercado = document.getElementById("escena_mercado");
-const escena_batalla = document.getElementById("escena_batalla");
-const escena_principal = document.getElementById("escena_principal")
 
-let jugador = new Jugador();
 console.log(jugador.avatar);
 
-img_jugador.setAttribute("src", jugador.avatar);
+
+
 
 
 boton.addEventListener('onclick', () => {
@@ -30,23 +46,15 @@ boton.addEventListener('onclick', () => {
 })
 
 
-function transicion_escena_principal_m(){
-
-}
-
-function transicion_escena_principal_b(){
-
-}
-
-function transicion_escena_mercado(){
-}
-
-function transicion_escena_batalla(){
-    
-}
+/*
+    MOSTRAR Y REFRESCAR ESTADÍSTICAS DEL JUGADOR
+*/
 
 
 
+
+mostrar_inventario();
+mostrar_estadisticas();
 
 
 

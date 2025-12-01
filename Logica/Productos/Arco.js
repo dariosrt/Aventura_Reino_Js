@@ -12,7 +12,7 @@ import { Producto } from "./Producto.js";
 */
 export class Arco extends Producto{
     constructor(){
-        super("Arco", "epico", "imgs/Arco.webp", 76000);
+        super("Arco", "epico", "estilos/imgs/Arco.webp", 76000);
 
         this.tipo = "precision";
         this.extra_ataque = 16;
