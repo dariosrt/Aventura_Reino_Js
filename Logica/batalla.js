@@ -1,67 +1,60 @@
+import { Jugador } from "./Entidades/Jugador.js";
+import { Enemigo } from "./Entidades/Enemigo.js";
+import { Jefe } from "./Entidades/Jefe.js";
+
+import { Armadura } from "./Productos/Armadura.js";
+import { Frasco } from "./Productos/Frasco.js";
+import { Arco } from "./Productos/Arco.js";
+import { Hacha } from "./Productos/Hacha.js";
+import { Daga } from "./Productos/Daga.js";
+import { Espada_rota } from "./Productos/Espada_rota.js";
 
 
+import { calcular_cambio } from "./utils.js";
+import { 
+    // crear_cajas_productos, 
+    mostrar_inventario,
+    mostrar_estadisticas
+} from "./escenas.js";
+import {
+    jugador,
+    lista_productos,
+    batalla,
+    header,
+    main,
+    footer,
+    btn_batalla_on,
+    btn_batalla_off
+} from "./constants.js"
+
+const botones = document.querySelectorAll(".btn_comprar");
+const btn_comprar = document.getElementById("comprar");
+
+btn_batalla_on.addEventListener("click", () => {
 
 
-/*
+    header.classList.add("ocultando");
+    main.classList.add("ocultando");
+    footer.classList.add("ocultando");
+    setTimeout(() => {
+        header.classList="oculto";
+        main.classList="oculto";
+        footer.classList="oculto";
+        batalla.classList= "batalla on";
+    }, 1000);
 
-    1. ARMAS
+});
+btn_batalla_off.addEventListener("click", () => {
 
-Dependiendo de que arma tulla y la del enemigo, se realizará un 0.8%, 1% o 1.2% + de daño y inversamente el enemigo a ti
+    batalla.classList= "batalla salida";
+    header.classList="ocultando";
+    main.classList="ocultando";
+    footer.classList="ocultando";
+    setTimeout(() => {
+        batalla.classList = "batalla off";
+        header.classList.remove("ocultando");
+        main.classList.remove("ocultando");
+        footer.classList.remove("ocultando");
+    }, 1000);
 
-
-
-Si una entidad tiene atium y la otra no, la entidad que posee atium incrementará su daño proporcionalmente a la cantidad del
-metal que tenga, si tiene 21/100 su daño sera aumentado un 21%. Si dos Entidades estan usando atium, ambos gastarán pero no 
-
-Antes del turno, cada entidad elige en base de la cantidad de metales disponibles 
-
-
-
-
-
-*/
-
-
-
-
-
-    /*
-    Aquí se ejecutará casi toda la lógica del combate, exceptuando lo referente a los objetos y alomancia que influye en
-    el combate, que se calculará en funciones separadas.
-
-    Devolverá el estado final de las 2 entidades al controlador.
-
-    En caso de detectar que el jugador ha ganado, se le añadirán puntos de experiencia según...
-    y cantidades aleatorias de metales alománticos que variaran su cantidad y probabilidad de aparición según el 
-    nivel del enemigo derrotad.
-
-    Hay una función a parte 
-    */
-
-
-
-
-
-function combate(jugador, enemigo){
-
-}
-
-
-    /* Aqui estará la lógica donde obtendremos el valor de los objetos (armas y armaduras) en el combate */
-function calc_objetos(){
-
-}
-
-
-    /* Aqui estará la lógica donde calcularemos la lógica de los metales en el combate */
-function calc_alomancia(){
-
-}
-
-
-/*
-    Calculará las ganancias obtenidas por el jugador en caso de ganar y mandará los resultados obtenidos
-*/
-function enviar_resultados(){
-
-}
+});

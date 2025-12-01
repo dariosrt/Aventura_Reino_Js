@@ -30,20 +30,20 @@ import {
 
 
 
-const boton = document.getElementById("btn_luchar");
+// const boton = document.getElementById("btn_luchar");
 
 
-console.log(jugador.avatar);
+// console.log(jugador.avatar);
 
 
 
 
 
-boton.addEventListener('onclick', () => {
-    let stats_jugador = document.getElementsByClassName("mostrar_stats");
-    console.log(stats_jugador);
+// boton.addEventListener('onclick', () => {
+//     let stats_jugador = document.getElementsByClassName("mostrar_stats");
+//     console.log(stats_jugador);
 
-})
+// })
 
 
 /*

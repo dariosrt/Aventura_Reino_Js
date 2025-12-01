@@ -13,8 +13,6 @@
 </head>
 <body> 
 
-    
-    
     <!-- <div id="mercado" class="mercado_off"> -->
     <div class="mercado" id="escena_mercado">
         <div id="mercado_head">
@@ -88,8 +86,16 @@
 
     </div>
 
-    <div id="escena_batalla">
+    <div id="escena_batalla" class="batalla">
+        <div id="batalla_body">
+            <button id="btn_batalla_off">Volver</button>
+            <div id="mostrar_stats_enemigos">
 
+            </div>
+        </div>
+        <div id="enemies_box">
+
+        </div>
     </div>
 
     <header>
@@ -115,7 +121,7 @@
                     <td name="mostrar_stats" id="stat_defensa" ></td>
                 </tr>
             </table>
-            <button onclick="refrescar_stats()" id="btn_luchar">Luchar</button>
+            <button id="btn_batalla_on">Luchar</button>
             <button id="btn_mercado_on"></button>
         </div>
         
