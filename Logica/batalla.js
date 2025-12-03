@@ -24,12 +24,16 @@ import {
     btn_batalla_off,
     btn_combate_on,
     lista_enemigos,
+    id_enemigo
 } from "./constants.js"
 
 
 
 
-export let enemigo_id = -1;
+/*
+    Mi mayor dolor de cabeza, como solo es lectura al identificarme id_enemigo.id con -1 solo me sale error en la logica_combate
+*/
+
 
 btn_batalla_on.addEventListener("click", () => {
 
@@ -41,18 +45,19 @@ btn_batalla_on.addEventListener("click", () => {
         header.classList="oculto";
         main.classList="oculto";
         footer.classList="oculto";
-        batalla.classList= "batalla on";
+        batalla.classList= "batalla escena_secundaria on";
     }, 1000);
+    crear_cajas_enemigos();
 
 });
 btn_batalla_off.addEventListener("click", () => {
 
-    batalla.classList= "batalla salida";
+    batalla.classList= "batalla escena_secundaria salida";
     header.classList="ocultando";
     main.classList="ocultando";
     footer.classList="ocultando";
     setTimeout(() => {
-        batalla.classList = "batalla off";
+        batalla.classList = "batalla escena_secundaria off";
         header.classList.remove("ocultando");
         main.classList.remove("ocultando");
         footer.classList.remove("ocultando");
@@ -61,13 +66,13 @@ btn_batalla_off.addEventListener("click", () => {
 });
 
 // btn_combate_on.addEventListener("click", () => {
-//     batalla.classList.add("salida_batalla");
+//     batalla.classList.add("salida_alternativa");
 //     setTimeout(() => {
 //         batalla.classList = "batalla off";
 
 //     }, 400);
 //     setTimeout(() => {
-//         combate.classList = "combate entrada_combate";
+//         combate.classList = "combate entrada_alternativa";
 //     }, 500);
 // });
 
@@ -80,10 +85,11 @@ export function crear_cajas_enemigos(){
 
     document.getElementById("enemigos_container").replaceChildren();
 
-    lista_enemigos.forEach((enemigo, id_enemigo) => {
+    lista_enemigos.forEach((enemigo, id) => {
         const caja = document.createElement("div");
         caja.classList.add("enemigo_box");
-        caja.dataset.id_enemigo = id_enemigo;
+        caja.dataset.id = id;
+        
 
         const img_enemigo = document.createElement("img");
         img_enemigo.classList.add("img_enemigo");
@@ -105,7 +111,8 @@ export function crear_cajas_enemigos(){
 
         if(enemigo instanceof Jefe){
             tipo.textContent = "Jefe";
-            ataque.textContent = `Ataque: ${enemigo.ataque} x ${enemigo.multiplicador_ataque}`;
+            ataque.textContent = `Ataque: ${enemigo.ataque*enemigo.multiplicador_ataque}`;
+            console.log(enemigo.multiplicador_ataque);
         }
         else{
             tipo.textContent = "Enemigo";
@@ -130,13 +137,14 @@ export function crear_cajas_enemigos(){
                 })
                 contenedor_padre.classList.add("desafiado");
                 btn.textContent = "Huir";
-                enemigo_id = contenedor_padre.dataset.id_enemigo;
+                id_enemigo.id = Number(contenedor_padre.dataset.id);
+                console.log(id_enemigo.id);
                 btn_combate_on.disabled = false;
             }
             else{
                 contenedor_padre.classList.remove("desafiado");
                 btn.textContent = "Desafiar";
-                enemigo_id = -1;
+                id_enemigo.id = -1;
                 btn_combate_on.disabled = true;
             }
         });
@@ -148,4 +156,4 @@ export function crear_cajas_enemigos(){
         document.getElementById("enemigos_container").appendChild(caja);
     });
 }
-crear_cajas_enemigos();
+// crear_cajas_enemigos();

@@ -24,25 +24,7 @@ import {
     btn_mercado_off
 } from "./constants.js"
 
-// Importante usar module en el script (dentro del html) para que permita usar/soportar los imports el naveador
 
-
-
-
-// const boton = document.getElementById("btn_luchar");
-
-
-// console.log(jugador.avatar);
-
-
-
-
-
-// boton.addEventListener('onclick', () => {
-//     let stats_jugador = document.getElementsByClassName("mostrar_stats");
-//     console.log(stats_jugador);
-
-// })
 
 
 /*
@@ -50,7 +32,18 @@ import {
 */
 
 
+cajas.forEach((caja, index) => {
+    caja.dataset.id = index; 
+    
+    // Agregar listener a cada caja
+    caja.addEventListener("click", () => {
+        const id = caja.dataset.id; // obtener el data-id
+        console.log("Has clicado la caja con id:", id);
 
+        // Aquí llamas a la función que quieras
+        funcionAlClic(id);
+    });
+});
 
 
 mostrar_inventario();

@@ -121,14 +121,28 @@ th, td {
 
 
 
+.escena_secundaria{
+    width: 800px;
+    height: 600px;
+    justify-self: center;
 
+    border: 4px solid black;
+    border-radius: 8px;
+
+    background-color: rgba(255, 247, 0, 0.316);
+    position: absolute;
+
+    display: none;
+    padding: 28px;
+    align-self: anchor-center; 
+}
 
 
 
     /* - MERCADO - */
 
 .mercado{
-    width: 800px;
+    /* width: 800px;
     height: 600px;
     justify-self: center;
 
@@ -140,7 +154,9 @@ th, td {
 
     display: none;
     padding: 28px;
-    align-self: anchor-center;
+    align-self: anchor-center; */
+    background-color: rgba(0, 255, 21, 0.316);
+
 }
 
 
@@ -196,7 +212,7 @@ th, td {
 
     /* - BATALLA - */
 
-.batalla{
+/* .batalla{
     width: 800px;
     height: 600px;
     justify-self: center;
@@ -210,7 +226,7 @@ th, td {
     display: none;
     padding: 28px;
     align-self: anchor-center;
-}
+} */
 
 #batalla_head{
     height: 64px;
@@ -264,7 +280,7 @@ th, td {
 
 
 .combate{
-    width: 800px;
+    /* width: 800px;
     height: 600px;
     justify-self: center;
 
@@ -276,16 +292,23 @@ th, td {
 
     display: none;
     padding: 28px;
-    align-self: anchor-center; 
+    align-self: anchor-center;  */
 }
 
 #contenedor_entidades{
     height: 70%;
     background-color: rgba(255, 0, 0, 0.25);
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 #estadisticas{
     height: 30%;
     background-color: #0000ff40;
+    justify-items: center;
+    display: grid;
+    align-items: center;
 }
 
 
@@ -354,7 +377,7 @@ th, td {
 }
 
 
-@keyframes salida_batalla {
+@keyframes salida_alternativa {
     from{
         transform: rotateZ(0deg) rotateY(0deg);
         opacity: 1;
@@ -365,7 +388,7 @@ th, td {
     }
 }
 
-@keyframes entrada_combate{
+@keyframes entrada_alternativa{
     from{
         transform: rotateZ(315deg) rotateY(270deg);
         opacity: 0;
@@ -390,14 +413,14 @@ th, td {
 }
 
 
-.salida_batalla{
-    animation: salida_batalla 0.5s ease-in-out; 
+.salida_alternativa{
+    animation: salida_alternativa 0.5s ease-in-out; 
 }
 
 
-.entrada_combate{
+.entrada_alternativa{
     display: block;
-    animation: entrada_combate 0.5s ease-in-out;
+    animation: entrada_alternativa 0.5s ease-in-out;
 }
 
 .off{

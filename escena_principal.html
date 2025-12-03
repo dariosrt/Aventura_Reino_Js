@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/style_vprincipal.css">
     <script type="module" src="Logica/utils.js" defer></script>
+    <script type="module" src="Logica/constants.js" defer></script>
     <script type="module" src="Logica/script_vprincipal.js" defer></script>
     <script type="module" src="Logica/escenas.js" defer></script>
     <script type="module" src="Logica/mercado.js" defer></script>
     <script type="module" src="Logica/batalla.js" defer></script>
+    <script type="module" src="Logica/logica_combate.js" defer></script>
     <script type="module" src="Logica/combate.js" defer></script>
+    <script type="module" src="Logica/final.js" defer></script>
     <title>Document</title>
 </head>
 <body> 
 
     <!-- <div id="mercado" class="mercado_off"> -->
-    <div class="mercado" id="escena_mercado">
+    <div class="mercado escena_secundaria" id="escena_mercado">
         <div id="mercado_head">
 
         </div>
@@ -39,7 +42,7 @@
 
     </div>
 
-    <div id="escena_batalla" class="batalla">
+    <div id="escena_batalla" class="batalla escena_secundaria">
         <div id="batalla_head">
             <button id="btn_batalla_off">Volver</button>
             <button id="btn_combate_on" disabled>Combatir</button>
@@ -47,23 +50,30 @@
         <div id="enemigos_container">
 
         </div>
+        
     </div>
 
-    <div id="escena_combate" class="combate">
+    <div id="escena_combate" class="combate escena_secundaria">
         <div id="contenedor_entidades">
-            <img class="img_entidad_jugador">
-            <img class="img_entidad_enemigo">
+            <img id="img_entidad_jugador" class="img_entidad">
+            <h2>VS</h2>
+            <img id="img_entidad_enemigo" class="img_entidad">
 
         </div>
         <div id="estadisticas">
+            <h3 id="nom_ganador"></h3>
+            <p id="pt_ganados"></p>
+            <p id="dinero_ganado"></p>
             <button id="btn_combate_off">Aceptar</button>
         </div>
     </div>
 
-    <div id="escena_final" class="final">
+    <div id="escena_final" class="final escena_secundaria">
         <div id="info_box">
-            
+            <h2 id="info_rango"></h2>
+            <p id="info_pts"></p>
         </div>
+        <button id="btn_reiniciar">Reiniciar</button>
     </div>
 
     <header>

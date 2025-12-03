@@ -48,18 +48,18 @@ btn_mercado_on.addEventListener("click", () => {
         header.classList="oculto";
         main.classList="oculto";
         footer.classList="oculto";
-        mercado.classList= "mercado on";
+        mercado.classList= "mercado escena_secundaria on";
     }, 1000);
 
 });
 btn_mercado_off.addEventListener("click", () => {
 
-    mercado.classList= "mercado salida";
+    mercado.classList= "mercado escena_secundaria salida";
     header.classList="ocultando";
     main.classList="ocultando";
     footer.classList="ocultando";
     setTimeout(() => {
-        mercado.classList = "mercado off";
+        mercado.classList = "mercado escena_secundaria off";
         header.classList.remove("ocultando");
         main.classList.remove("ocultando");
         footer.classList.remove("ocultando");
@@ -78,7 +78,7 @@ btn_mercado_off.addEventListener("click", () => {
 
 export function crear_cajas_productos(){
 
-    document.getElementById("mercado_body").replaceChildren();
+    document.getElementById("mercado_body").replaceChildren(); //Borrar contenido de la caja
 
     lista_productos.forEach((producto, id_producto) => {
         const caja = document.createElement("div");

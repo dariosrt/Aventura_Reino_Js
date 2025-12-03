@@ -24,6 +24,7 @@ export class Jugador extends Entidad{
         this.defensa = 50;
         this.avatar = "estilos/imgs/protagonista_temporal.avif";
         this.reserva_metales = [0, 0, 0, 0, 0];
+        this.puntos = 0;
         this.dinero = 2000000;
         this.inventario = new Array(10).fill(null);
         this.inventario[0] = new Espada_rota();
