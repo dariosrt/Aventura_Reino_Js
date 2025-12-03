@@ -54,8 +54,10 @@ export function mostrar_estadisticas(){
     document.getElementById("stat_dinero").textContent = `Dinero: ${calcular_cambio(jugador.dinero)} $`;
 
     document.getElementById("stat_nombre").textContent = jugador.nombre;
+    document.getElementById("stat_vida").textContent = jugador.vida;
     document.getElementById("stat_ataque").textContent = jugador.ataque;
     document.getElementById("stat_defensa").textContent = jugador.defensa;
+    document.getElementById("img_item_jugador").setAttribute("src", jugador.img_arma());
 
 }
 

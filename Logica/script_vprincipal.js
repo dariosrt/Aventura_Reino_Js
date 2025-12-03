@@ -23,6 +23,8 @@ import {
     btn_mercado_on,
     btn_mercado_off
 } from "./constants.js"
+import { Pocion_vida } from "./Productos/Pocion_Vida.js";
+import { Producto } from "./Productos/Producto.js";
 
 
 
@@ -31,21 +33,44 @@ import {
     MOSTRAR Y REFRESCAR ESTADÍSTICAS DEL JUGADOR
 */
 
+const item_box = document.querySelectorAll(".item_box");
+const img_item_jugador = document.getElementById("img_item_jugador");
 
-cajas.forEach((caja, index) => {
-    caja.dataset.id = index; 
-    
-    // Agregar listener a cada caja
-    caja.addEventListener("click", () => {
-        const id = caja.dataset.id; // obtener el data-id
-        console.log("Has clicado la caja con id:", id);
+function interactuar_con_inventario(caja){
+    let posicion = Number(caja.dataset.posicion_id);
+    if(jugador.inventario[posicion] instanceof Pocion_vida){
 
-        // Aquí llamas a la función que quieras
-        funcionAlClic(id);
-    });
+        if(jugador.vida === jugador.max_vida){
+            caja.classList.add("error_compra");
+            // Quitar la clase después de la animación
+            setTimeout(() => {
+                caja.classList.remove("error_compra");
+            }, 200);
+            console.log("La vida ya esta al máximo.");
+        }
+        else{
+            jugador.curarse();
+            jugador.inventario[posicion] = null;
+        }
+    }
+    else if(jugador.inventario[posicion] !== null){
+        jugador.arma=posicion;
+    }
+
+    mostrar_inventario();
+    mostrar_estadisticas();
+}
+
+item_box.forEach(caja => {
+    caja.addEventListener("click", () => interactuar_con_inventario(caja));
 });
 
+// function mostrar_arma_seleccionada(){
+    
+//     img_item_jugador.setAttribute("src", jugador.inventario[jugador.arma].img);
+// }
 
+// mostrar_arma_seleccionada();
 mostrar_inventario();
 mostrar_estadisticas();
 

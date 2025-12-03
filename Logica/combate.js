@@ -88,8 +88,8 @@ function mostrar_resultados(){
         nom_ganador.textContent = `Ganador: ${resultados[0]}`;
         pt_ganados.textContent = `Puntos ganados: +${resultados[1]}pt`;
         dinero_ganado.textContent = `Dinero ganado: +${(calcular_cambio(resultados[2]))} $`;
-        if(resultados[3] === false){
-        // if(resultados[3] === true){
+        // if(resultados[3] === false){
+        if(resultados[3] === true){
             btn_combate_off.classList.add("mostrar_final");
         }
         img_entidad_enemigo.setAttribute("src", resultados[4]);

@@ -112,7 +112,6 @@ export function crear_cajas_enemigos(){
         if(enemigo instanceof Jefe){
             tipo.textContent = "Jefe";
             ataque.textContent = `Ataque: ${enemigo.ataque*enemigo.multiplicador_ataque}`;
-            console.log(enemigo.multiplicador_ataque);
         }
         else{
             tipo.textContent = "Enemigo";

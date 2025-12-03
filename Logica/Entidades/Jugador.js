@@ -5,6 +5,7 @@ import { Daga } from "../Productos/Daga.js";
 import { Espada_rota } from "../Productos/Espada_rota.js";
 import { Pocion_vida } from "../Productos/Pocion_Vida.js";
 import { Entidad } from "./Entidad.js";
+import { Producto } from "../Productos/Producto.js";
 /*
     Dependiendo de que tipo de arma se 
 
@@ -21,7 +22,7 @@ export class Jugador extends Entidad{
         this.vida = 100
         this.max_vida = this.vida;
         this.ataque = 60;
-        this.defensa = 50;
+        this.defensa = 20;
         this.avatar = "estilos/imgs/protagonista_temporal.avif";
         this.reserva_metales = [0, 0, 0, 0, 0];
         this.puntos = 0;
@@ -34,8 +35,9 @@ export class Jugador extends Entidad{
 
     }
 
-    curarse(curacion){
-        if(curacion+this.vida >= this.max_vida){
+    curarse(){
+        let cura = 40;
+        if(cura+this.vida >= this.max_vida){
             this.vida = this.max_vida;
         }
         else{
@@ -54,11 +56,32 @@ export class Jugador extends Entidad{
     }
 
     atacado(daño){
-        if(this.vida + this.defensa < daño){
+        if(this.vida + this.defensa - daño <= 0){
             this.vida = 0;
         }
+        else if(this.defensa >= daño){
+            return
+        }
         else{
-            this.vida = (this.vida + this.defensa) - daño
+            this.vida = (this.vida + this.defensa) - daño;
+        }
+    }
+    atacar(){
+        if(this.inventario[this.arma] instanceof Producto){
+            return this.ataque + this.inventario[this.arma].extra_ataque;
+        }
+        else{
+            return this.ataque;
+        }
+    }
+
+    img_arma(){
+        let img_arma = this.inventario[this.arma].img
+        if(!img_arma){
+            return "";
+        }
+        else{
+            return img_arma;
         }
     }
     

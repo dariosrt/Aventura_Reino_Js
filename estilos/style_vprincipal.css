@@ -75,6 +75,12 @@ footer{
     width: 125px;
     
 }
+#img_item_jugador{
+    width: 50px;
+    border:2px solid black;
+    border-radius: 50%;
+    background-color: grey;
+}
 th, td {
   border: 1px solid black;
   width: 60px;
@@ -320,8 +326,14 @@ th, td {
     /* Escena Final */
 
 
+.batalla{
+    justify-items: center;
+    align-items: center;
+}
 
-
+#info_box{
+    justify-items: center;
+}
 
 
 
@@ -444,7 +456,7 @@ th, td {
 
 
 
-@keyframes error_compra {
+@keyframes animacion_meneo {
     0% { transform: rotateZ(0deg); }
     25% { transform: rotateZ(-5deg); }
     50% { transform: rotateZ(5deg); }
@@ -453,5 +465,5 @@ th, td {
 }
 
 .error_compra{
-    animation: error_compra 0.2s cubic-bezier(0.83, 0.35, 0.62, 1.1);
+    animation: animacion_meneo 0.2s cubic-bezier(0.83, 0.35, 0.62, 1.1);
 }

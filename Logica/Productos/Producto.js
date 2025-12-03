@@ -23,4 +23,9 @@ export class Producto{
     //         valor = valor;
     //     }
     // }
+
+    // 1=100%   0.1=10%
+    descuento(descuento){
+        this.valor = round(this.valor - (this.valor*descuento), 0)
+    }
 }

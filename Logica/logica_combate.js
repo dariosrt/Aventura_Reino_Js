@@ -31,12 +31,12 @@ export function combatir(){
         return null;
     }
     const enemigo = lista_enemigos[id_enemigo.id];
-
+    
     let continuar = true;
     let num_repeticiones_max=0;
     while (continuar === true){
         jugador.atacado(enemigo.ataque)
-        enemigo.atacado(jugador.ataque);
+        enemigo.atacado(jugador.atacar());
         if(jugador.vida === 0){
             continuar = false;
             return [enemigo.nombre, 0, 0, true, enemigo.avatar];
@@ -75,7 +75,7 @@ function calcular_resultados_combate(enemigo){
     if(lista_enemigos.length === 0){
         pantalla_final = true;
     }
-    let puntos = (jugador.ataque + 100) * multiplicador;
+    let puntos = (enemigo.ataque + 100) * multiplicador;
 
     jugador.puntos += puntos;
     jugador.dinero += puntos*100;
