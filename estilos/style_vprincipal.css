@@ -6,15 +6,7 @@
 }
 
 
-#img_jugador{
-    width: 125px;
-    
-}
-th, td {
-  border: 1px solid black;
-  width: 60px;
-  height: 25px;
-}
+
 
 body{
     /* width: 100vh; */
@@ -79,7 +71,15 @@ footer{
     box-sizing: border-box;
 }
 
-
+#img_jugador{
+    width: 125px;
+    
+}
+th, td {
+  border: 1px solid black;
+  width: 60px;
+  height: 25px;
+}
 
 
 #item_container{
@@ -101,13 +101,8 @@ footer{
     border: 2px solid black;
     margin: 8px;
 
-    align-items: center;
-    /* background  */
-
-    
+    align-items: center;   
 }
-
-
 
 .item_img{
     width: 60px;
@@ -115,7 +110,6 @@ footer{
     
     transition: 0.2s linear;
 }
-/* .item_ */
 
 .item_box:hover >:only-child{
     transform: scale(1.4) rotateY(180deg) rotateX(180deg) rotateZ(180deg);
@@ -128,20 +122,7 @@ footer{
 
 
 
-/* #mercado_box{
-    width: 0px;
-    height: 0px;
-    justify-self: center;
 
-    border: 2px solid black;
-    border-radius: 8px;
-
-    background-color: rgba(0, 255, 21, 0.316);
-    position: absolute;
-
-    padding: 16px;
-    box-sizing: border-box;
-} */
 
 
     /* - MERCADO - */
@@ -168,7 +149,6 @@ footer{
 #mercado_head{
     height: 67px;
     background-color: #0000ff38;
-    /* box-sizing: border-box; */
 }
 
 #mercado_body{
@@ -177,7 +157,6 @@ footer{
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    /* box-sizing: border-box; */
 }
 
 .product_box{
@@ -216,6 +195,7 @@ footer{
 
 
     /* - BATALLA - */
+
 .batalla{
     width: 800px;
     height: 600px;
@@ -232,18 +212,92 @@ footer{
     align-self: anchor-center;
 }
 
-/* height= height: calc((100% - 32px - 8px) * 0.4); Pero 100% siempre será 600px*/
+#batalla_head{
+    height: 64px;
+
+}
+
+#enemigos_container{
+    height: 536px;    
+
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 #batalla_body{
-    height: 224px;
-    border: 2px solid black;
-    margin-bottom: 32px;
-
+    display: flex;
+    padding: 16px;
+    box-sizing: border-box;
 }
 
-#enemies_box{
-    height: 336px;
-    border: 2px solid black;
+
+
+
+
+.enemigo_box{
+    width: 160px;
+    height: 256px;
+    display: grid;
+
+    background-color: rgba(255, 0, 60, 0.25);
+
+    transition: 0.2s linear;
 }
+
+.desafiado{
+    transition: 0.2s linear;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.img_enemigo{
+    height: 75px;
+}
+
+.img_arma_enemigo{
+    width: 50px;
+}
+
+    /* Escena Combate */
+
+
+
+.combate{
+    width: 800px;
+    height: 600px;
+    justify-self: center;
+
+    border: 4px solid black;
+    border-radius: 8px;
+
+    background-color: rgba(255, 247, 0, 0.316);
+    position: absolute;
+
+    display: none;
+    padding: 28px;
+    align-self: anchor-center; 
+}
+
+#contenedor_entidades{
+    height: 70%;
+    background-color: rgba(255, 0, 0, 0.25);
+}
+#estadisticas{
+    height: 30%;
+    background-color: #0000ff40;
+}
+
+
+
+.img_entidad{
+    width: 256px;
+}
+
+    /* Escena Final */
+
+
+
 
 
 
@@ -259,23 +313,6 @@ footer{
         opacity: 1;
 
     }
-    /* 0%{
-    transform: rotateZ(90deg) translate(-50%, -50%);
-    left: 1070px;
-    top: -635px;
-    }
-    60%{
-    transform: rotateZ(-25deg) translate(-50%, -50%);
-    top: 200px;
-    left: 352px;
-    top: 28vh;
-    left: 58vh;
-    }
-    100%{
-    transform: rotateZ(0deg) translate(-50%, -50%);
-    top: 0px;
-    left: 0px
-    } */
 }
 
 @keyframes animacion_salida_mercado {
@@ -317,6 +354,29 @@ footer{
 }
 
 
+@keyframes salida_batalla {
+    from{
+        transform: rotateZ(0deg) rotateY(0deg);
+        opacity: 1;
+    }
+    to{
+        transform: rotateZ(45deg) rotateY(90deg);
+        opacity: 0;
+    }
+}
+
+@keyframes entrada_combate{
+    from{
+        transform: rotateZ(315deg) rotateY(270deg);
+        opacity: 0;
+    }
+    to{
+        transform: rotateZ(360deg) rotateY(360deg);
+        opacity: 1;
+    }
+}
+
+
 .on{
     display: block;
     animation: animacion_entrada_mercado 1s cubic-bezier(1, -0.01, 0, 1);
@@ -327,6 +387,17 @@ footer{
     opacity: 1;
     display: block;
     animation: animacion_salida_mercado 1s ease-in-out forwards;
+}
+
+
+.salida_batalla{
+    animation: salida_batalla 0.5s ease-in-out; 
+}
+
+
+.entrada_combate{
+    display: block;
+    animation: entrada_combate 0.5s ease-in-out;
 }
 
 .off{
@@ -351,13 +422,13 @@ footer{
 
 
 @keyframes error_compra {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
+    0% { transform: rotateZ(0deg); }
+    25% { transform: rotateZ(-5deg); }
+    50% { transform: rotateZ(5deg); }
+    75% { transform: rotateZ(-5deg); }
+    100% { transform: rotateZ(0deg); }
 }
 
 .error_compra{
-    animation: error_compra 0.5s linear ease-in-out;
+    animation: error_compra 0.2s cubic-bezier(0.83, 0.35, 0.62, 1.1);
 }

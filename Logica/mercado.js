@@ -2,12 +2,11 @@ import { Jugador } from "./Entidades/Jugador.js";
 import { Enemigo } from "./Entidades/Enemigo.js";
 import { Jefe } from "./Entidades/Jefe.js";
 
-import { Armadura } from "./Productos/Armadura.js";
-import { Frasco } from "./Productos/Frasco.js";
 import { Arco } from "./Productos/Arco.js";
 import { Hacha } from "./Productos/Hacha.js";
 import { Daga } from "./Productos/Daga.js";
 import { Espada_rota } from "./Productos/Espada_rota.js";
+import { Pocion_vida } from "./Productos/Pocion_Vida.js";
 
 
 import { calcular_cambio } from "./utils.js";
@@ -36,7 +35,6 @@ import {
 
 
 let cantidad_a_gastar = 0;
-
 const botones = document.querySelectorAll(".btn_comprar");
 const btn_comprar = document.getElementById("comprar");
 
@@ -68,6 +66,7 @@ btn_mercado_off.addEventListener("click", () => {
     }, 1000);
 
 });
+
 
 
 
@@ -117,6 +116,7 @@ export function crear_cajas_productos(){
 
                 cantidad_a_gastar -= precio;
                 console.log(cantidad_a_gastar)
+                console.log()
                 contenedor_padre.classList.remove("añadido");
                 btn.textContent = "Añadir";
                 if(cantidad_a_gastar === 0){
@@ -125,6 +125,7 @@ export function crear_cajas_productos(){
                 else{
                     btn_comprar.disabled = false;
                 }
+                jugador.hueco_inventario += 1;
             }
             else if (jugador.dinero-cantidad_a_gastar >= precio && jugador.hueco_inventario !== 0) {
                 cantidad_a_gastar += precio;
@@ -136,11 +137,11 @@ export function crear_cajas_productos(){
                 btn.textContent = "Retirar";
                 jugador.hueco_inventario -= 1;
             } else {
-                contenedor_padre.classList.add("error_compra");
+                btn.classList.add("error_compra");
                 // Quitar la clase después de la animación
                 setTimeout(() => {
-                    contenedor_padre.classList.remove("error_compra");
-                }, 500);
+                    btn.classList.remove("error_compra");
+                }, 200);
             }
         });
 
@@ -224,6 +225,7 @@ function comprar(){
     btn_comprar.disabled = true;
     jugador.restaurar_hueco_inventario();
     crear_cajas_productos();
+    mostrar_estadisticas();
     mostrar_inventario();
     console.log(jugador.inventario);
 }

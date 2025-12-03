@@ -9,6 +9,7 @@
     <script type="module" src="Logica/escenas.js" defer></script>
     <script type="module" src="Logica/mercado.js" defer></script>
     <script type="module" src="Logica/batalla.js" defer></script>
+    <script type="module" src="Logica/combate.js" defer></script>
     <title>Document</title>
 </head>
 <body> 
@@ -30,55 +31,7 @@
                 <h4>Nombre: </h4>
                 <p>Precio: </p>
                 <button>Comprar</button>
-            </div>
-            <div class="product_box">
-                <img class="img_producto" src="">
-                <h4>Nombre: </h4>
-                <p>Precio: </p>
-                <button>Comprar</button>
-            </div>
-            <div class="product_box">
-                <img class="img_producto" src="">
-                <h4>Nombre: </h4>
-                <p>Precio: </p>
-                <button>Comprar</button>
-            </div>
-            <div class="product_box">
-                <img class="img_producto" src="">
-                <h4>Nombre: </h4>
-                <p>Precio: </p>
-                <button>Comprar</button>
-            </div>
-            <div class="product_box">
-                <img class="img_producto" src="">
-                <h4>Nombre: </h4>
-                <p>Precio: </p>
-                <button>Comprar</button>
-            </div>
-            <div class="product_box">
-                <img class="img_producto" src="">
-                <h4>Nombre: </h4>
-                <p>Precio: </p>
-                <button>Comprar</button>
-            </div>
-            <div class="product_box">
-                <img class="img_producto" src="">
-                <h4>Nombre: </h4>
-                <p>Precio: </p>
-                <button>Comprar</button>
-            </div>
-            <div class="product_box">
-                <img class="img_producto" src="">
-                <h4>Nombre: </h4>
-                <p>Precio: </p>
-                <button>Comprar</button>
-            </div>
-            <div class="product_box">
-                <img class="img_producto" src="">
-                <h4>Nombre: </h4>
-                <p>Precio: </p>
-                <button>Comprar</button>
-            </div> -->
+            </div>-->
 
         </div>
         <button id="comprar" disabled>Comprar</button>
@@ -87,14 +40,29 @@
     </div>
 
     <div id="escena_batalla" class="batalla">
-        <div id="batalla_body">
+        <div id="batalla_head">
             <button id="btn_batalla_off">Volver</button>
-            <div id="mostrar_stats_enemigos">
-
-            </div>
+            <button id="btn_combate_on" disabled>Combatir</button>
         </div>
-        <div id="enemies_box">
+        <div id="enemigos_container">
 
+        </div>
+    </div>
+
+    <div id="escena_combate" class="combate">
+        <div id="contenedor_entidades">
+            <img class="img_entidad_jugador">
+            <img class="img_entidad_enemigo">
+
+        </div>
+        <div id="estadisticas">
+            <button id="btn_combate_off">Aceptar</button>
+        </div>
+    </div>
+
+    <div id="escena_final" class="final">
+        <div id="info_box">
+            
         </div>
     </div>
 

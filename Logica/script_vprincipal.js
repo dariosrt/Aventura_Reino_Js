@@ -2,7 +2,6 @@ import { Jugador } from "./Entidades/Jugador.js";
 import { Enemigo } from "./Entidades/Enemigo.js";
 import { Jefe } from "./Entidades/Jefe.js";
 
-import { Armadura } from "./Productos/Armadura.js";
 import { Frasco } from "./Productos/Frasco.js";
 import { Arco } from "./Productos/Arco.js";
 import { Hacha } from "./Productos/Hacha.js";
@@ -49,6 +48,7 @@ import {
 /*
     MOSTRAR Y REFRESCAR ESTADÍSTICAS DEL JUGADOR
 */
+
 
 
 
