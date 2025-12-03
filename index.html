@@ -3,9 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/style_vprincipal.css">
+    <script type="module" src="Logica/utils.js" defer></script>
+    <script type="module" src="Logica/constants.js" defer></script>
+    <script type="module" src="Logica/script_vprincipal.js" defer></script>
+    <script type="module" src="Logica/escenas.js" defer></script>
+    <script type="module" src="Logica/mercado.js" defer></script>
+    <script type="module" src="Logica/batalla.js" defer></script>
+    <script type="module" src="Logica/logica_combate.js" defer></script>
+    <script type="module" src="Logica/combate.js" defer></script>
+    <script type="module" src="Logica/final.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script> 
     <title>Document</title>
 </head>
-<body>
-    <form action="escena_principal.html"></form>
+<body> 
+
+    <!-- <div id="mercado" class="mercado_off"> -->
+    <div class="mercado escena_secundaria" id="escena_mercado">
+        <div id="mercado_head"> 
+            <h1>VISTA MERCADO</h1>
+        </div>
+        <div id="mercado_body">
+            <!-- <div class="product_box">
+                <img class="img_producto" src="estilos/imgs/Arco.webp">
+                <h4>Nombre: </h4>
+                <p>Precio: </p>
+                <button>Comprar</button>
+            </div>
+            <div class="product_box">
+                <img class="img_producto" src="">
+                <h4>Nombre: </h4>
+                <p>Precio: </p>
+                <button>Comprar</button>
+            </div>-->
+
+        </div>
+        <div id="contenedor_botones">
+            <button id="comprar" disabled>Comprar</button>
+            <button id="btn_mercado_off">Salir</button>
+        </div>
+
+    </div>
+
+    <div id="escena_batalla" class="batalla escena_secundaria">
+        <div id="batalla_head">
+            <button id="btn_batalla_off">Volver</button>
+            <button id="btn_combate_on" disabled>Combatir</button>
+        </div>
+        <div id="enemigos_container">
+
+        </div>
+        
+    </div>
+
+    <div id="escena_combate" class="combate escena_secundaria">
+        <div id="contenedor_entidades">
+            <img id="img_entidad_jugador" class="img_entidad">
+            <h2>VS</h2>
+            <img id="img_entidad_enemigo" class="img_entidad">
+
+        </div>
+        <div id="estadisticas">
+            <h3 id="nom_ganador"></h3>
+            <p id="pt_ganados"></p>
+            <p id="dinero_ganado"></p>
+            <button id="btn_combate_off">Aceptar</button>
+        </div>
+    </div>
+
+    <div id="escena_final" class="final escena_secundaria">
+        <div id="info_box">
+            <h2 id="info_rango"></h2>
+            <p id="info_pts"></p>
+        </div>
+        <button id="btn_reiniciar">Reiniciar</button>
+    </div>
+
+    <header>
+        <h1>VISTA PRINCIPAL</h1>
+    </header>
+    <main>
+        <div id="principal_box">
+            <img id="img_jugador" class="mostrar_stats">
+            <h4 class="mostrar_stats" id="stat_dinero"></h4>
+            <div id="stats_box">
+            </div>
+            <table>
+                <tr>
+                    <td>Nombre</td>
+                    <td name="mostrar_stats" id="stat_nombre" ></td>
+                </tr>
+                <tr>
+                    <td>Vida</td>
+                    <td name="mostrar_stats" id="stat_vida" ></td>
+                </tr>
+                <tr>
+                    <td>Ataque</td>
+                    <td name="mostrar_stats" id="stat_ataque" ></td>
+                </tr>
+                <tr>
+                    <td>Defensa</td>
+                    <td name="mostrar_stats" id="stat_defensa" ></td>
+                </tr>
+            </table>
+            <img id="img_item_jugador">
+            <button id="btn_batalla_on">Luchar</button>
+            <button id="btn_mercado_on"></button>
+        </div>
+        
+    </main>
+    <footer>
+        <div id="item_container">
+            <div class="item_box" data-posicion_id="0">
+                <!-- <img class="item_img" src="estilos/imgs/Arco.webp"> -->
+                <img class="item_img">
+            </div>
+            <div class="item_box" data-posicion_id="1">
+                <img class="item_img">
+            </div>
+            <div class="item_box" data-posicion_id="2">
+                <img class="item_img">
+            </div>
+            <div class="item_box" data-posicion_id="3">
+                <img class="item_img">
+            </div>
+            <div class="item_box" data-posicion_id="4">
+                <img class="item_img">
+            </div>
+            <div class="item_box" data-posicion_id="5">
+                <img class="item_img">
+            </div>
+            <div class="item_box" data-posicion_id="6">
+                <img class="item_img">
+            </div>
+            <div class="item_box" data-posicion_id="7">
+                <img class="item_img">
+            </div>
+            <div class="item_box" data-posicion_id="8">
+                <img class="item_img">
+            </div>
+            <div class="item_box" data-posicion_id="9">
+                <img class="item_img">
+            </div>
+        </div>
+    </footer>
+
+
+
 </body>
 </html>

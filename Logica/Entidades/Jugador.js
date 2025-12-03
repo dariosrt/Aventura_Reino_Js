@@ -19,7 +19,7 @@ export class Jugador extends Entidad{
     constructor(lenght){
         super();
         this.nombre = "Solaire";
-        this.vida = 10;
+        this.vida = 100;
         this.max_vida = this.vida;
         this.ataque = 60;
         this.defensa = 20;
