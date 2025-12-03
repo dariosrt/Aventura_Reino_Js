@@ -6,41 +6,39 @@
 }
 
 
-#img_jugador{
-    width: 125px;
-    
-}
-th, td {
-  border: 1px solid black;
-  width: 60px;
-  height: 25px;
-}
+
 
 body{
-    /* width: 100vh; */
     height: 100vh;
 
     background-image: url(imgs/fondo_principal.png);
-    background-color: rgb(21, 21, 21);
     background-size: cover;
 
     background-attachment: fixed;
     background-position: center;
 
-
+    align-content: center;
     overflow: hidden;
+
+    font-family: "OldNewspaper", serif;
     
 }
-
-
 
 
 
 header{
     height: 64px;
 
-    background-color: rgba(255, 255, 0, 0.208);
+    background-color: #ffffff80;
+    border: 4px solid black;
     transition: all 0.5s ease-in-out;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    width: 400px;
+    justify-self: center;
+    border-radius: 6px;
+    align-self: center;
 
 }
 
@@ -62,24 +60,56 @@ footer{
 }
 
 
+button{
+    background-color: #c8c8c8;
+    border: 2px solid black;
+    font-family: "OldNewspaper", serif;
+
+    transition: 0.2s linear;
+}
+
+button:hover{
+    color: #c8c8c8;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.2s;
+}
 
 
 
 
 
 #principal_box{
-    width: 600px;
+    width: 440px;
     height: 400px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 4px solid rgba(255, 255, 0, 0.208);
+    background-color: #ffffff80;
+    border: 4px solid black;
+    border-radius: 6px;
 
     margin: 24px;
 
     padding: 12px;
     box-sizing: border-box;
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
 }
 
-
+#img_jugador{
+    width: 125px;
+    
+}
+#img_item_jugador{
+    width: 50px;
+    border:2px solid black;
+    border-radius: 50%;
+    background-color: #808080;
+}
+th, td {
+  border: 1px solid black;
+  width: 60px;
+  height: 25px;
+}
 
 
 #item_container{
@@ -88,8 +118,9 @@ footer{
     display: flex;
     margin: 12px;
     box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 4px solid rgba(0, 255, 166, 0.208);
+    background-color: #ffffff80;
+    border: 4px solid black;
+    border-radius: 6px;
     justify-content: center;
     align-items: center;
 }
@@ -101,13 +132,8 @@ footer{
     border: 2px solid black;
     margin: 8px;
 
-    align-items: center;
-    /* background  */
-
-    
+    align-items: center;   
 }
-
-
 
 .item_img{
     width: 60px;
@@ -115,7 +141,6 @@ footer{
     
     transition: 0.2s linear;
 }
-/* .item_ */
 
 .item_box:hover >:only-child{
     transform: scale(1.4) rotateY(180deg) rotateX(180deg) rotateZ(180deg);
@@ -127,26 +152,7 @@ footer{
 
 
 
-
-/* #mercado_box{
-    width: 0px;
-    height: 0px;
-    justify-self: center;
-
-    border: 2px solid black;
-    border-radius: 8px;
-
-    background-color: rgba(0, 255, 21, 0.316);
-    position: absolute;
-
-    padding: 16px;
-    box-sizing: border-box;
-} */
-
-
-    /* - MERCADO - */
-
-.mercado{
+.escena_secundaria{
     width: 800px;
     height: 600px;
     justify-self: center;
@@ -154,21 +160,24 @@ footer{
     border: 4px solid black;
     border-radius: 8px;
 
-    background-color: rgba(0, 255, 21, 0.316);
+    background-color: #ffffff51;
     position: absolute;
 
     display: none;
     padding: 28px;
-    align-self: anchor-center;
+    align-self: anchor-center; 
 }
 
 
 
+    /* - MERCADO - */
 
+.mercado{
+    background-color: rgba(59, 223, 72, 0.25);
+}
 #mercado_head{
     height: 67px;
-    background-color: #0000ff38;
-    /* box-sizing: border-box; */
+    justify-items: center;
 }
 
 #mercado_body{
@@ -177,9 +186,10 @@ footer{
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    /* box-sizing: border-box; */
-}
+    justify-content: center;
 
+
+}
 .product_box{
     width: 144px;
     height: 144px;
@@ -193,7 +203,12 @@ footer{
 
     transition: 0.5s linear ease-in-out;
 }
-
+#contenedor_botones{
+    height: 128px;
+    display: grid;
+    justify-items: center;
+    align-content: space-around;
+}
 .añadido{
     background-color: rgba(255, 0, 0, 0.25);
     transform: rotateZ(360deg);
@@ -216,35 +231,89 @@ footer{
 
 
     /* - BATALLA - */
-.batalla{
-    width: 800px;
-    height: 600px;
-    justify-self: center;
 
-    border: 4px solid black;
-    border-radius: 8px;
+#batalla_head{
+    height: 64px;
 
-    background-color: rgba(255, 247, 0, 0.316);
-    position: absolute;
-
-    display: none;
-    padding: 28px;
-    align-self: anchor-center;
 }
 
-/* height= height: calc((100% - 32px - 8px) * 0.4); Pero 100% siempre será 600px*/
+#enemigos_container{
+    height: 536px;    
+
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
 #batalla_body{
-    height: 224px;
-    border: 2px solid black;
-    margin-bottom: 32px;
-
+    display: flex;
+    padding: 16px;
+    box-sizing: border-box;
 }
 
-#enemies_box{
-    height: 336px;
+.enemigo_box{
+    width: 160px;
+    height: 256px;
+    display: grid;
+
+    background-color: rgba(255, 0, 0, 0.5);
+
+    transition: 0.2s linear;
+
+    align-items: center;
+    justify-items: center;
+    border-radius: 4px;
     border: 2px solid black;
+    box-sizing: border-box;
 }
 
+.desafiado{
+    transition: 0.2s linear;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.img_enemigo{
+    height: 75px;
+}
+
+.img_arma_enemigo{
+    width: 50px;
+}
+
+    /* Escena Combate */
+
+#contenedor_entidades{
+    height: 70%;    
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#estadisticas{
+    height: 30%;
+    justify-items: center;
+    display: grid;
+    align-items: center;
+}
+
+
+
+.img_entidad{
+    width: 256px;
+}
+
+    /* Escena Final */
+
+
+.batalla{
+    justify-items: center;
+    align-items: center;
+}
+
+#info_box{
+    justify-items: center;
+}
 
 
 
@@ -259,23 +328,6 @@ footer{
         opacity: 1;
 
     }
-    /* 0%{
-    transform: rotateZ(90deg) translate(-50%, -50%);
-    left: 1070px;
-    top: -635px;
-    }
-    60%{
-    transform: rotateZ(-25deg) translate(-50%, -50%);
-    top: 200px;
-    left: 352px;
-    top: 28vh;
-    left: 58vh;
-    }
-    100%{
-    transform: rotateZ(0deg) translate(-50%, -50%);
-    top: 0px;
-    left: 0px
-    } */
 }
 
 @keyframes animacion_salida_mercado {
@@ -317,6 +369,29 @@ footer{
 }
 
 
+@keyframes salida_alternativa {
+    from{
+        transform: rotateZ(0deg) rotateY(0deg);
+        opacity: 1;
+    }
+    to{
+        transform: rotateZ(45deg) rotateY(90deg);
+        opacity: 0;
+    }
+}
+
+@keyframes entrada_alternativa{
+    from{
+        transform: rotateZ(315deg) rotateY(270deg);
+        opacity: 0;
+    }
+    to{
+        transform: rotateZ(360deg) rotateY(360deg);
+        opacity: 1;
+    }
+}
+
+
 .on{
     display: block;
     animation: animacion_entrada_mercado 1s cubic-bezier(1, -0.01, 0, 1);
@@ -327,6 +402,20 @@ footer{
     opacity: 1;
     display: block;
     animation: animacion_salida_mercado 1s ease-in-out forwards;
+}
+
+
+.salida_alternativa{
+    animation: salida_alternativa 0.5s ease-in-out; 
+}
+
+
+.entrada_alternativa{
+    display: grid;
+    animation: entrada_alternativa 0.5s ease-in-out;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
 }
 
 .off{
@@ -350,14 +439,27 @@ footer{
 
 
 
-@keyframes error_compra {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
+@keyframes animacion_meneo {
+    0% { transform: rotateZ(0deg); }
+    25% { transform: rotateZ(-5deg); }
+    50% { transform: rotateZ(5deg); }
+    75% { transform: rotateZ(-5deg); }
+    100% { transform: rotateZ(0deg); }
 }
 
 .error_compra{
-    animation: error_compra 0.5s linear ease-in-out;
+    animation: animacion_meneo 0.2s cubic-bezier(0.83, 0.35, 0.62, 1.1);
 }
+
+
+
+@font-face {
+    font-family: "OldNewspaper";
+    src: url("./fuentes/OldNewspaperTypes.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+

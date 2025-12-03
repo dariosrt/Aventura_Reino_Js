@@ -2,13 +2,12 @@ import { Jugador } from "./Entidades/Jugador.js";
 import { Enemigo } from "./Entidades/Enemigo.js";
 import { Jefe } from "./Entidades/Jefe.js";
 
-import { Armadura } from "./Productos/Armadura.js";
 import { Frasco } from "./Productos/Frasco.js";
 import { Arco } from "./Productos/Arco.js";
 import { Hacha } from "./Productos/Hacha.js";
 import { Daga } from "./Productos/Daga.js";
 import { Espada_rota } from "./Productos/Espada_rota.js";
-
+import { Pocion_vida } from "./Productos/Pocion_Vida.js";
 
 import { calcular_cambio } from "./utils.js";
 
@@ -55,8 +54,10 @@ export function mostrar_estadisticas(){
     document.getElementById("stat_dinero").textContent = `Dinero: ${calcular_cambio(jugador.dinero)} $`;
 
     document.getElementById("stat_nombre").textContent = jugador.nombre;
+    document.getElementById("stat_vida").textContent = jugador.vida;
     document.getElementById("stat_ataque").textContent = jugador.ataque;
     document.getElementById("stat_defensa").textContent = jugador.defensa;
+    document.getElementById("img_item_jugador").setAttribute("src", jugador.img_arma());
 
 }
 

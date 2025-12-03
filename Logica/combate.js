@@ -1,67 +1,139 @@
+import { Jugador } from "./Entidades/Jugador.js";
+import { Enemigo } from "./Entidades/Enemigo.js";
+import { Jefe } from "./Entidades/Jefe.js";
+import { Frasco } from "./Productos/Frasco.js";
+import { Arco } from "./Productos/Arco.js";
+import { Hacha } from "./Productos/Hacha.js";
+import { Daga } from "./Productos/Daga.js";
+import { Espada_rota } from "./Productos/Espada_rota.js";
+import { calcular_cambio } from "./utils.js";
+import { 
+    mostrar_inventario,
+    mostrar_estadisticas
+} from "./escenas.js";
+import {
+    jugador,
+    batalla,
+    combate,
+    final,
+    header,
+    main,
+    footer,
+    btn_combate_on,
+    btn_combate_off,
+    nom_ganador,
+    pt_ganados,
+    dinero_ganado,
+    lista_enemigos,
+    id_enemigo
+} from "./constants.js"
+
+import { mostrar_resultados_finales } from "./final.js";
+
+import { combatir } from "./logica_combate.js";
+
+// const img_jugador = document.getElementById("img_entidad_jugador");
+// const img_enemigo = document.getElementById("img_entidad_enemigo");
+
+btn_combate_on.addEventListener("click", () => {
+    batalla.classList.add("salida_alternativa");
+    setTimeout(() => {
+        batalla.classList = "batalla escena_secundaria off";
+
+    }, 400);
+    setTimeout(() => {
+        combate.classList = "combate escena_secundaria entrada_alternativa";
+    }, 500);
+    mostrar_resultados();
+});
+
+btn_combate_off.addEventListener("click", () => {
+    if(btn_combate_off.classList.contains("mostrar_final")){
+        combate.classList.add("salida_alternativa");
+        setTimeout(() => {
+            combate.classList = "combate escena_secundaria off";
+
+        }, 400);
+        setTimeout(() => {
+            final.classList = "final escena_secundaria entrada_alternativa";
+        }, 500);
+        mostrar_resultados_finales();
+        lanzar_confettis();
+    }
+
+    else{
+        combate.classList= "combate escena_secundaria salida";
+        header.classList="ocultando";
+        main.classList="ocultando";
+        footer.classList="ocultando";
+        setTimeout(() => {
+            combate.classList = "combate escena_secundaria off";
+            header.classList.remove("ocultando");
+            main.classList.remove("ocultando");
+            footer.classList.remove("ocultando");
+        }, 1000);
+        mostrar_inventario();
+        mostrar_estadisticas();
+    }
+});
 
 
 
+function mostrar_resultados(){
 
-/*
+    let resultados = combatir();
+    console.log(resultados);
+    if(resultados){
+        img_entidad_jugador.setAttribute("src", jugador.avatar);
 
-    1. ARMAS
-
-Dependiendo de que arma tulla y la del enemigo, se realizará un 0.8%, 1% o 1.2% + de daño y inversamente el enemigo a ti
-
-
-
-Si una entidad tiene atium y la otra no, la entidad que posee atium incrementará su daño proporcionalmente a la cantidad del
-metal que tenga, si tiene 21/100 su daño sera aumentado un 21%. Si dos Entidades estan usando atium, ambos gastarán pero no 
-
-Antes del turno, cada entidad elige en base de la cantidad de metales disponibles 
-
-
-
-
-
-*/
-
-
-
-
-
-    /*
-    Aquí se ejecutará casi toda la lógica del combate, exceptuando lo referente a los objetos y alomancia que influye en
-    el combate, que se calculará en funciones separadas.
-
-    Devolverá el estado final de las 2 entidades al controlador.
-
-    En caso de detectar que el jugador ha ganado, se le añadirán puntos de experiencia según...
-    y cantidades aleatorias de metales alománticos que variaran su cantidad y probabilidad de aparición según el 
-    nivel del enemigo derrotad.
-
-    Hay una función a parte 
-    */
-
-
-
-
-
-function combate(jugador, enemigo){
+        nom_ganador.textContent = `Ganador: ${resultados[0]}`;
+        pt_ganados.textContent = `Puntos ganados: +${resultados[1]}pt`;
+        dinero_ganado.textContent = `Dinero ganado: +${(calcular_cambio(resultados[2]))} $`;
+        // if(resultados[3] === false){
+        if(resultados[3] === true){
+            btn_combate_off.classList.add("mostrar_final");
+        }
+        img_entidad_enemigo.setAttribute("src", resultados[4]);
+    }
 
 }
 
 
-    /* Aqui estará la lógica donde obtendremos el valor de los objetos (armas y armaduras) en el combate */
-function calc_objetos(){
+function lanzar_confettis() {
 
-}
+    const fecha_fin_confeti = Date.now() + 2000;
 
+    confetti({
+        particleCount: 32,
+        spread: 30,
+        origin: { x: Math.random(), y: Math.random() - 0.2 }
+    });
+    confetti({
+        particleCount: 32,
+        spread: 80,
+        origin: { x: Math.random(), y: Math.random() - 0.4 }
+    });
+    confetti({
+        particleCount: 32,
+        spread: 80,
+        origin: { x: Math.random(), y: Math.random() - 0.6 }
+    });
+    
+    
 
-    /* Aqui estará la lógica donde calcularemos la lógica de los metales en el combate */
-function calc_alomancia(){
-
-}
-
-
-/*
-    Calculará las ganancias obtenidas por el jugador en caso de ganar y mandará los resultados obtenidos
-*/
-function enviar_resultados(){
+    confetti({
+        particleCount: 32,
+        spread: 80,
+        origin: { x: Math.random(), y: Math.random() - 0.8 }
+    });
+    
+    confetti({
+        particleCount: 32,
+        spread: 80,
+        origin: { x: Math.random(), y: Math.random() - 0.10 }
+    });
+    if (Date.now() < fecha_fin_confeti) {
+        requestAnimationFrame(frame);
+    }
 
 }
