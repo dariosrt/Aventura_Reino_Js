@@ -64,7 +64,16 @@ button{
     background-color: #c8c8c8;
     border: 2px solid black;
     font-family: "OldNewspaper", serif;
+
+    transition: 0.2s linear;
 }
+
+button:hover{
+    color: #c8c8c8;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.2s;
+}
+
 
 
 
