@@ -59,7 +59,7 @@ lista_productos.push(new Pocion_vida());
 lista_productos.push(new Pocion_vida());
 
 
-lista_enemigos.push(new Jefe("Inquisidor", 90, 40, 50, "estilos/imgs/Inquisidor.webp", 1.4));
+lista_enemigos.push(new Jefe("Inquisidor", 90, 40, 50, "estilos/imgs/Inquisidor.jpg", 1.4));
 lista_enemigos.push(new Enemigo("No muerto", 40, 30, 20, "estilos/imgs/No_muerto.png"));
 lista_enemigos.push(new Enemigo("No muerto", 40, 40, 20, "estilos/imgs/No_muerto.png"));
 lista_enemigos.push(new Enemigo("No muerto", 40, 40, 20, "estilos/imgs/No_muerto.png"));
