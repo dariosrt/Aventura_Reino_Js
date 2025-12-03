@@ -58,6 +58,7 @@ btn_combate_off.addEventListener("click", () => {
             final.classList = "final escena_secundaria entrada_alternativa";
         }, 500);
         mostrar_resultados_finales();
+        lanzar_confettis();
     }
 
     else{
@@ -98,3 +99,41 @@ function mostrar_resultados(){
 }
 
 
+function lanzar_confettis() {
+
+    const fecha_fin_confeti = Date.now() + 2000;
+
+    confetti({
+        particleCount: 32,
+        spread: 30,
+        origin: { x: Math.random(), y: Math.random() - 0.2 }
+    });
+    confetti({
+        particleCount: 32,
+        spread: 80,
+        origin: { x: Math.random(), y: Math.random() - 0.4 }
+    });
+    confetti({
+        particleCount: 32,
+        spread: 80,
+        origin: { x: Math.random(), y: Math.random() - 0.6 }
+    });
+    
+    
+
+    confetti({
+        particleCount: 32,
+        spread: 80,
+        origin: { x: Math.random(), y: Math.random() - 0.8 }
+    });
+    
+    confetti({
+        particleCount: 32,
+        spread: 80,
+        origin: { x: Math.random(), y: Math.random() - 0.10 }
+    });
+    if (Date.now() < fecha_fin_confeti) {
+        requestAnimationFrame(frame);
+    }
+
+}

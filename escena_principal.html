@@ -13,14 +13,15 @@
     <script type="module" src="Logica/logica_combate.js" defer></script>
     <script type="module" src="Logica/combate.js" defer></script>
     <script type="module" src="Logica/final.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script> 
     <title>Document</title>
 </head>
 <body> 
 
     <!-- <div id="mercado" class="mercado_off"> -->
     <div class="mercado escena_secundaria" id="escena_mercado">
-        <div id="mercado_head">
-
+        <div id="mercado_head"> 
+            <h1>VISTA MERCADO</h1>
         </div>
         <div id="mercado_body">
             <!-- <div class="product_box">
@@ -37,8 +38,10 @@
             </div>-->
 
         </div>
-        <button id="comprar" disabled>Comprar</button>
-        <button id="btn_mercado_off">Salir</button>
+        <div id="contenedor_botones">
+            <button id="comprar" disabled>Comprar</button>
+            <button id="btn_mercado_off">Salir</button>
+        </div>
 
     </div>
 
@@ -77,7 +80,7 @@
     </div>
 
     <header>
-
+        <h1>VISTA PRINCIPAL</h1>
     </header>
     <main>
         <div id="principal_box">

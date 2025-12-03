@@ -9,7 +9,6 @@
 
 
 body{
-    /* width: 100vh; */
     height: 100vh;
 
     background-image: url(imgs/fondo_principal.png);
@@ -19,8 +18,10 @@ body{
     background-attachment: fixed;
     background-position: center;
 
-
+    align-content: center;
     overflow: hidden;
+
+    font-family: "OldNewspaper", serif;
     
 }
 
@@ -31,8 +32,16 @@ body{
 header{
     height: 64px;
 
-    background-color: rgba(255, 255, 0, 0.208);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 4px solid black;
     transition: all 0.5s ease-in-out;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    width: 400px;
+    justify-self: center;
+    border-radius: 6px;
+    align-self: center;
 
 }
 
@@ -54,21 +63,30 @@ footer{
 }
 
 
-
+button{
+    background-color: rgb(200, 200, 200);
+    border: 2px solid black;
+    font-family: "OldNewspaper", serif;
+}
 
 
 
 
 #principal_box{
-    width: 600px;
+    width: 440px;
     height: 400px;
     background-color: rgba(255, 255, 255, 0.5);
-    border: 4px solid rgba(255, 255, 0, 0.208);
+    border: 4px solid black;
+    border-radius: 6px;
 
     margin: 24px;
 
     padding: 12px;
     box-sizing: border-box;
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
 }
 
 #img_jugador{
@@ -95,7 +113,8 @@ th, td {
     margin: 12px;
     box-sizing: border-box;
     background-color: rgba(255, 255, 255, 0.5);
-    border: 4px solid rgba(0, 255, 166, 0.208);
+    border: 4px solid black;
+    border-radius: 6px;
     justify-content: center;
     align-items: center;
 }
@@ -135,7 +154,7 @@ th, td {
     border: 4px solid black;
     border-radius: 8px;
 
-    background-color: rgba(255, 247, 0, 0.316);
+    background-color: rgba(255, 255, 255, 0.316);
     position: absolute;
 
     display: none;
@@ -148,29 +167,11 @@ th, td {
     /* - MERCADO - */
 
 .mercado{
-    /* width: 800px;
-    height: 600px;
-    justify-self: center;
-
-    border: 4px solid black;
-    border-radius: 8px;
-
-    background-color: rgba(0, 255, 21, 0.316);
-    position: absolute;
-
-    display: none;
-    padding: 28px;
-    align-self: anchor-center; */
-    background-color: rgba(0, 255, 21, 0.316);
-
+    background-color: rgba(59, 223, 72, 0.25);
 }
-
-
-
-
 #mercado_head{
     height: 67px;
-    background-color: #0000ff38;
+    justify-items: center;
 }
 
 #mercado_body{
@@ -179,8 +180,10 @@ th, td {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-}
+    justify-content: center;
 
+
+}
 .product_box{
     width: 144px;
     height: 144px;
@@ -194,7 +197,12 @@ th, td {
 
     transition: 0.5s linear ease-in-out;
 }
-
+#contenedor_botones{
+    height: 128px;
+    display: grid;
+    justify-items: center;
+    align-content: space-around;
+}
 .añadido{
     background-color: rgba(255, 0, 0, 0.25);
     transform: rotateZ(360deg);
@@ -218,22 +226,6 @@ th, td {
 
     /* - BATALLA - */
 
-/* .batalla{
-    width: 800px;
-    height: 600px;
-    justify-self: center;
-
-    border: 4px solid black;
-    border-radius: 8px;
-
-    background-color: rgba(255, 247, 0, 0.316);
-    position: absolute;
-
-    display: none;
-    padding: 28px;
-    align-self: anchor-center;
-} */
-
 #batalla_head{
     height: 64px;
 
@@ -246,6 +238,7 @@ th, td {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }
 
 #batalla_body{
@@ -254,18 +247,20 @@ th, td {
     box-sizing: border-box;
 }
 
-
-
-
-
 .enemigo_box{
     width: 160px;
     height: 256px;
     display: grid;
 
-    background-color: rgba(255, 0, 60, 0.25);
+    background-color: rgba(255, 0, 0, 0.5);
 
     transition: 0.2s linear;
+
+    align-items: center;
+    justify-items: center;
+    border-radius: 4px;
+    border: 2px solid black;
+    box-sizing: border-box;
 }
 
 .desafiado{
@@ -283,35 +278,14 @@ th, td {
 
     /* Escena Combate */
 
-
-
-.combate{
-    /* width: 800px;
-    height: 600px;
-    justify-self: center;
-
-    border: 4px solid black;
-    border-radius: 8px;
-
-    background-color: rgba(255, 247, 0, 0.316);
-    position: absolute;
-
-    display: none;
-    padding: 28px;
-    align-self: anchor-center;  */
-}
-
 #contenedor_entidades{
-    height: 70%;
-    background-color: rgba(255, 0, 0, 0.25);
-    
+    height: 70%;    
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 #estadisticas{
     height: 30%;
-    background-color: #0000ff40;
     justify-items: center;
     display: grid;
     align-items: center;
@@ -431,8 +405,11 @@ th, td {
 
 
 .entrada_alternativa{
-    display: block;
+    display: grid;
     animation: entrada_alternativa 0.5s ease-in-out;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
 }
 
 .off{
@@ -467,3 +444,20 @@ th, td {
 .error_compra{
     animation: animacion_meneo 0.2s cubic-bezier(0.83, 0.35, 0.62, 1.1);
 }
+
+
+@font-face {
+    font-family: "LendLight";
+    src: url("./fuentes/LEDLIGHT.otf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "OldNewspaper";
+    src: url("./fuentes/OldNewspaperTypes.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
