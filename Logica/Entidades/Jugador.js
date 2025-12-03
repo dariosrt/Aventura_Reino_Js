@@ -41,7 +41,7 @@ export class Jugador extends Entidad{
             this.vida = this.max_vida;
         }
         else{
-            this.vida+=curacion;
+            this.vida+=cura;
         }
     }
 
